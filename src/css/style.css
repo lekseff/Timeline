@@ -1,0 +1,147 @@
+@import url('./popup.css');
+
+* {
+	padding:0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #282828;
+	padding: 10px;
+	height: 100vh;
+	background-color: rgb(115, 115, 115);
+	background-image: url('../img/bg-images.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.timeline {
+	width: 520px;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.timeline__posts {
+	min-height: 200px;
+	max-height: 520px;
+	border-radius: 10px;
+	border: 1px solid gray;
+	padding: 10px 15px;
+	overflow-y: auto;
+	box-shadow: 0px 1px 6px 0px rgb(34 60 80 / 20%);
+}
+
+/* Стиль scroll */
+.timeline__posts::-webkit-scrollbar {
+  width: 8px;
+  /* background-color: #2d2d2de0; */
+  background-color: transparent;
+}
+
+.timeline__posts::-webkit-scrollbar-thumb {
+  background-color: #afafafd4;
+  border-radius: 4px;
+}
+/* Конец стиль scroll */
+
+.timeline__input {
+	padding-top: 15px;
+
+}
+
+#post-input {
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+	width: 100%;
+	padding: 6px 20px;
+	border-radius: 6px;
+	border: 1px solid gray;
+}
+
+#post-input::placeholder {
+	opacity: 0.5;
+}
+
+#post-input:focus {
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+}
+
+
+/** Post */
+
+.post {
+	border: 1px solid gray;
+	border-radius: 8px;
+	padding: 10px;
+	background-color: #fffbd0db;
+	box-shadow: -1px -3px 4px 0px rgb(34 60 80 / 20%);
+}
+
+.post:nth-child(n+2) {
+	margin-top: 12px;
+}
+
+.post__date {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	text-align: right;
+	margin-bottom: 7px;
+}
+
+.post__text {
+	text-align: right;
+	text-indent: 20px;
+	margin-bottom: 10px;
+}
+
+.post_coords {
+	display: inline-block;
+	position: relative;
+	font-size: 13px;
+	padding-left: 24px;
+}
+
+.post_coords::before {
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 0;
+	width: 16px;
+	height: 16px;
+	background-image: url('../img/icons/gps3png.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#post-input {
+  width: 100%;
+  padding: 6px 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+  margin-top: 6px;
+}
+
+#post-input::placeholder {
+  opacity: 0.5;
+}
+
+#post-input:focus {
+  outline: none;
+  border: 1px solid rgb(80, 80, 80);
+}
