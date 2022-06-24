@@ -1,5 +1,4 @@
-/* eslint-disable class-methods-use-this */
-import { createPopper } from '@popperjs/core';
+import Tooltip from './Tooltip';
 
 export default class Modal {
   constructor(container) {
@@ -11,6 +10,7 @@ export default class Modal {
    * Инициализация
    */
   init() {
+    this.tooltip = new Tooltip(this.modal);
     this.input = this.modal.querySelector('.popup__input_field');
     this.registerEvents();
   }
@@ -37,7 +37,7 @@ export default class Modal {
  * Действие по кнопке сохранить
  */
   saveHandler(data) {
-    const result = this.validateData(data);
+    const result = this.constructor.validateData(data);
 
     if (result.status) {
       this.saveButtonListener.forEach((o) => {
@@ -45,7 +45,7 @@ export default class Modal {
       });
       this.hide();
     } else {
-      this.showError(this.input, result.message);
+      this.tooltip.showMessage(this.input, result.message);
     }
   }
 
@@ -60,7 +60,7 @@ export default class Modal {
    * Валидация введенных координат
    * @returns - false или объект coords
    */
-  validateData(data) {
+  static validateData(data) {
     if (data === '') {
       return { status: false, message: 'Заполните поле' };
     }
@@ -105,32 +105,5 @@ export default class Modal {
    */
   reset() {
     this.input.value = '';
-  }
-
-  /**
-   * Показывает сообщение с ошибкой
-   * @param {*} element - Элемент у которого показать подсказку
-   * @param {*} text - Текст сообщения
-   */
-  showError(element, text) {
-    const errorTooltip = this.modal.querySelector('#error-tooltip');
-    const popperInstance = createPopper(element, errorTooltip, {
-      placement: 'top',
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 6],
-          },
-        },
-      ],
-    });
-    errorTooltip.querySelector('#error-message').textContent = text;
-    errorTooltip.setAttribute('data-show', '');
-    popperInstance.update();
-    // element.focus();
-    setTimeout(() => {
-      errorTooltip.removeAttribute('data-show');
-    }, 2500);
   }
 }

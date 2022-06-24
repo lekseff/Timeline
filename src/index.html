@@ -25,11 +25,23 @@
           </div> -->
 
         </div>
+
         <div class="timeline__input">
           <label class="timeline__input_field">
             <input type="text" id="post-input" maxlength="256" placeholder="Напишите...">
           </label>
-          <div class="timeline__buttons"></div>
+          <div class="timeline__buttons">
+            <button class="btn timeline__button-record"></button>
+          </div>
+          <div class="error-tooltip" role="tooltip">
+            <span class="error-message"></span>
+            <div class="arrow" data-popper-arrow></div>
+          </div>
+        </div>
+        <div class="sound-panel hidden">
+          <button class="btn sound-panel__stop" data-record="stop"></button>
+          <div class="sound-panel__time">00:00</div>
+          <button class="btn sound-panel__cancel" data-record="cancel"></button>
         </div>
       </main>
 
@@ -48,9 +60,9 @@
             <button class="popup__button popup__button_cancel">Отмена</button>
           </div>
         </div>
-        <div id="error-tooltip" role="tooltip">
-          <span id="error-message"></span>
-          <div id="arrow" data-popper-arrow></div>
+        <div class="error-tooltip" role="tooltip">
+          <span class="error-message"></span>
+          <div class="arrow" data-popper-arrow></div>
         </div>
       </div>
 

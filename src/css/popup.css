@@ -88,14 +88,14 @@
 
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 
 /* Сообщение об ошибке */
 
-#error-tooltip {
+.error-tooltip {
   display: none;
   background: #fc6a6a;
   color: #ffffff;
@@ -108,29 +108,29 @@
 	z-index: 10;
 }
 
-#error-tooltip[data-show] {
+.error-tooltip[data-show] {
   display: block;  
 }
 
-#arrow,
-#arrow::before {
+.arrow,
+.arrow::before {
   position: absolute;
   width: 8px;
   height: 8px;
   background: inherit;
 }
 
-#arrow {
+.arrow {
   visibility: hidden;
 }
 
-#arrow::before {
+.arrow::before {
   visibility: visible;
   content: '';
   transform: rotate(45deg);
 }
 
-#error-tooltip[data-popper-placement^='top'] > #arrow {
+.error-tooltip[data-popper-placement^='top'] > .arrow {
   bottom: -4px;
 }
 

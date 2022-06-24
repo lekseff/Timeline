@@ -1,4 +1,5 @@
 @import url('./popup.css');
+@import url('./soundpanel.css');
 
 * {
 	padding:0;
@@ -14,9 +15,10 @@ body {
 	padding: 10px;
 	height: 100vh;
 	background-color: rgb(115, 115, 115);
-	background-image: url('../img/bg-images.jpeg');
+	background-image: url('../img/foto.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
 }
 
 .container {
@@ -56,9 +58,16 @@ body {
 }
 /* Конец стиль scroll */
 
-.timeline__input {
-	padding-top: 15px;
 
+.timeline__input {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 15px;
+}
+
+.timeline__input_field {
+	flex-grow: 1;	
 }
 
 #post-input {
@@ -76,8 +85,42 @@ body {
 }
 
 #post-input:focus {
-	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	outline: none;
+  border: 1px solid rgb(80, 80, 80);
 
+}
+
+.timeline__buttons {
+	padding-left: 10px;
+}
+
+.btn {
+	border: none;
+	/* outline: none; */
+	cursor: pointer;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.timeline__button-record {
+	width: 28px;
+	height: 28px;
+	background-image: url('../img/icons/soundrecorder.svg');
+
+}
+
+.btn:hover {
+	transform: scale(1.05);
+}
+
+.audio-player {
+	display: block;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 6px;
 }
 
 
@@ -123,25 +166,12 @@ body {
 	top: 0;
 	width: 16px;
 	height: 16px;
-	background-image: url('../img/icons/gps3png.png');
+	background-image: url('../img/icons/gps.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
-#post-input {
-  width: 100%;
-  padding: 6px 15px;
-  border-radius: 6px;
-  border: 1px solid gray;
-  margin-top: 6px;
-}
-
-#post-input::placeholder {
-  opacity: 0.5;
-}
-
-#post-input:focus {
-  outline: none;
-  border: 1px solid rgb(80, 80, 80);
+.hidden {
+	display: none;
 }
